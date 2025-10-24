@@ -1,6 +1,4 @@
-* {
-  font-family: 'Inter Variable', sans-serif;
-}
+@import "tailwindcss";
 
 :root {
   --background: white;
@@ -10,4 +8,9 @@
 [data-theme='dark'] {
   --background: black;
   --foreground: white;
+}
+
+@theme {
+  --font-inter: 'Inter Variable', sans-serif;
+  --font-noto: 'Noto Sans Thai Variable', sans-serif;
 }

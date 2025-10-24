@@ -1,3 +1,5 @@
+import { EnvirontmentKeys } from "@/app/_types";
+
 export const getLastPathSegment = (path: string): string | null => {
     const lastpath: string | undefined = path.split('/').pop();
     return lastpath ? lastpath : null;
@@ -18,4 +20,8 @@ export const toCamelCase = (text: string): string => {
     } else {
         return texts.map((t: string) => t[0].toUpperCase() + t.slice(1).toLowerCase()).join(" ");
     }
+}
+
+export const getEnv = (key: EnvirontmentKeys): string => {
+    return process.env[key] as string;
 }
