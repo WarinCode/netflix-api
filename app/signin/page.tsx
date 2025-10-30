@@ -3,10 +3,10 @@ import { SignIn } from "@stackframe/stack";
 
 export default function SignInPage() {
   return (
-    <div>
+    <div className="font-mukta">
       <SignIn
-        fullPage={true}
-        automaticRedirect={true}
+        fullPage
+        automaticRedirect
         extraInfo={<Link href="/signup">Sign Up</Link>}
       />
     </div>

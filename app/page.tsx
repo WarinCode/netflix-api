@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { stackServerApp } from "@/stack/server";
 import { CurrentServerUser } from "@stackframe/react";
-import RedButton from "./components/red-button";
+import RedButton from "@/components/red-button";
 
 export default async function Home() {
   const user: CurrentServerUser | null = await stackServerApp.getUser();
@@ -25,21 +26,23 @@ export default async function Home() {
           <div>
             {user ? (
               <div className="flex items-center justify-evenly">
-                <div className="flex items-center space-x-2">
-                  <Image
-                    src={user.profileImageUrl as string}
-                    alt="profile image"
-                    className="rounded-full border-slate-50/30 border-4"
-                    height={55}
-                    width={55}
-                  />
-                  <div className="text-sm w-36 font-inter">
-                    <p>{user.displayName}</p>
-                    <p className="text-gray-400 mt-1 text-ellipsis overflow-hidden">
-                      {user.primaryEmail}
-                    </p>
+                <Link href="/account-settings">
+                  <div className="flex items-center space-x-2">
+                    <Image
+                      src={user.profileImageUrl as string}
+                      alt="profile image"
+                      className="rounded-full border-slate-50/30 border-4"
+                      height={55}
+                      width={55}
+                    />
+                    <div className="text-sm w-36 font-inter">
+                      <p>{user.displayName}</p>
+                      <p className="text-gray-400 mt-1 text-ellipsis overflow-hidden">
+                        {user.primaryEmail}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
                 <RedButton
                   href="/signout"
                   text="ออกจากระบบ"
@@ -60,7 +63,7 @@ export default async function Home() {
       <div className="text-center my-40 w-3/5 mx-auto">
         <h1 className="text-4xl font-bold tracking-wide leading-12 font-noto">
           เว็บไซต์ให้บริการ{" "}
-          <span className="text-red-600 font-inter">Netflix API</span>{" "}
+          <span className="text-red-600 font-mukta">Netflix API</span>{" "}
           สำหรับการให้บริการข้อมูลหนังทั้งหมด{" "}
           <span className="text-amber-300">8800+</span> กว่าเรื่อง
         </h1>

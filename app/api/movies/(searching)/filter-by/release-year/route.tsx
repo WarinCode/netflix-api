@@ -8,8 +8,8 @@ export async function GET({ nextUrl }: NextRequest){
     const toYear: string | null = nextUrl.searchParams.get("toYear");
 
     try {
-        await ZodSchemas.year.parseAsync(parseInt(fromYear as string));
-        await ZodSchemas.year.parseAsync(parseInt(toYear as string));
+        await ZodSchemas.releaseYear.parseAsync(parseInt(fromYear as string));
+        await ZodSchemas.releaseYear.parseAsync(parseInt(toYear as string));
         if (!fromYear && !toYear){
             throw new Error("ต้องมีการระบุช่วงปีสำหรับการค้นหา!");
         }

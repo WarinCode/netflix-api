@@ -8,8 +8,8 @@ export async function GET({ nextUrl }: NextRequest){
     const endDate: string | null = nextUrl.searchParams.get("endDate");
 
     try {
-        await ZodSchemas.date.parseAsync(startDate);
-        await ZodSchemas.date.parseAsync(endDate);
+        await ZodSchemas.dateAdded.parseAsync(startDate);
+        await ZodSchemas.dateAdded.parseAsync(endDate);
         const data = await sql`SELECT * FROM netflix_shows WHERE date_added BETWEEN ${startDate} AND ${endDate} ORDER BY date_added;`;
         return NextResponse.json(data, { status: 200 });
     } catch(err: unknown) {

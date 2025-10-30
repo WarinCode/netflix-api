@@ -3,3 +3,7 @@ export interface RedButtonProps {
     href: string;
     text: string;
 }
+
+export interface ActionButtonProps extends Omit<RedButtonProps, "href">{
+    handleClick: () => void | Promise<void>;
+}

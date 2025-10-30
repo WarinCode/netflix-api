@@ -5,7 +5,9 @@ import { ThemeProvider } from "next-themes";
 // @ts-ignore - fontsource has no type declarations for side-effect import
 import "@fontsource-variable/inter";
 // @ts-ignore - fontsource has no type declarations for side-effect import
-import '@fontsource-variable/noto-sans-thai';
+import "@fontsource-variable/noto-sans-thai";
+// @ts-ignore - fontsource has no type declarations for side-effect import
+import "@fontsource/mukta";
 import "./globals.css";
 
 export const metadata: Metadata = {

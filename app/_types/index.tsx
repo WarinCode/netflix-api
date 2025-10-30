@@ -1,3 +1,6 @@
+import * as z from "zod";
+import ZodSchemas from "@/app/_schemas";
+
 export interface NextJSEnvironment extends NodeJS.ProcessEnv {
   readonly DATABASE_URL: string;
   readonly NEXT_PUBLIC_STACK_PROJECT_ID: string;
@@ -27,3 +30,14 @@ export interface Movie {
 }
 
 export type Movies = Movie[];
+
+export interface NextParams<T extends object> {
+  params: Promise<T>;
+}
+
+export interface Id {
+  id: string;
+}
+
+export type AddMovie = z.infer<typeof ZodSchemas.addMovie>;
+export type UpdateMovie = z.infer<typeof ZodSchemas.updateMovie>;
