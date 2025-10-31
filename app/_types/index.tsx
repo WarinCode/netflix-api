@@ -41,3 +41,21 @@ export interface Id {
 
 export type AddMovie = z.infer<typeof ZodSchemas.addMovie>;
 export type UpdateMovie = z.infer<typeof ZodSchemas.updateMovie>;
+
+export interface ApiKey {
+  id: string;
+  description: string;
+  expiresAt?: Date | undefined;
+  manuallyRevokedAt?: (Date | null) | undefined;
+  createdAt: Date;
+  value: {
+    lastFour: string;
+  };
+  update: (options: any) => Promise<void>;
+  revoke: () => Promise<void>;
+  isValid: () => boolean;
+  whyInvalid: () => "manually-revoked" | "expired" | null;
+  type: "user";
+  userId: string;
+}
+export type ApiKeys = ApiKey[];

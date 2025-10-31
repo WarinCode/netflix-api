@@ -71,7 +71,7 @@ export default async function Home() {
           ลงทะเบียนเพื่อเข้าใช้งาน API ได้เลยตอนนี้
         </h3>
         <RedButton
-          href="/"
+          href="/api-key"
           text="เริ่มต้นการใช้งาน"
           className="w-56 h-14 mx-auto font-noto mt-10 text-lg font-bold"
         />
