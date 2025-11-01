@@ -1,65 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
-import { stackServerApp } from "@/stack/server";
-import { CurrentServerUser } from "@stackframe/react";
+import NetflixContainer from "@/components/netflix-container";
+import Navbar from "@/components/navbar";
 import RedButton from "@/components/red-button";
 
 export default async function Home() {
-  const user: CurrentServerUser | null = await stackServerApp.getUser();
-
   return (
-    <main
-      style={{
-        backgroundImage:
-          "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('/netflix-background.jpg')",
-      }}
-      className="p-12 h-screen w-screen bg-cover bg-center bg-no-repeat"
-    >
-      <nav className="w-full">
-        <div className="flex items-center justify-between px-20">
-          <Image
-            src="/netflix-wordmark.svg"
-            alt="Netflix-wordmark"
-            width={140}
-            height={50}
-          />
-          <div>
-            {user ? (
-              <div className="flex items-center justify-evenly">
-                <Link href="/account-settings">
-                  <div className="flex items-center space-x-2">
-                    <Image
-                      src={user.profileImageUrl as string}
-                      alt="profile image"
-                      className="rounded-full border-slate-50/30 border-4"
-                      height={55}
-                      width={55}
-                    />
-                    <div className="text-sm w-36 font-inter">
-                      <p>{user.displayName}</p>
-                      <p className="text-gray-400 mt-1 text-ellipsis overflow-hidden">
-                        {user.primaryEmail}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-                <RedButton
-                  href="/signout"
-                  text="ออกจากระบบ"
-                  className="ms-3 font-noto"
-                />
-              </div>
-            ) : (
-              <RedButton
-                href="/signin"
-                text="เข้าสู่ระบบ"
-                className="font-noto"
-              />
-            )}
-          </div>
-        </div>
-      </nav>
-
+    <NetflixContainer>
+      <Navbar />
       <div className="text-center my-40 w-3/5 mx-auto">
         <h1 className="text-4xl font-bold tracking-wide leading-12 font-noto">
           เว็บไซต์ให้บริการ{" "}
@@ -71,11 +18,22 @@ export default async function Home() {
           ลงทะเบียนเพื่อเข้าใช้งาน API ได้เลยตอนนี้
         </h3>
         <RedButton
-          href="/api-key"
+          href="/management"
           text="เริ่มต้นการใช้งาน"
-          className="w-56 h-14 mx-auto font-noto mt-10 text-lg font-bold"
+          className="w-56 h-14 mx-auto mt-10 text-lg font-bold"
         />
       </div>
-    </main>
+      <div className="mt-60 font-noto w-full flex flex-col items-center space-y-4">
+          <h1 className="text-center text-3xl font-bold tracking-wide">ตัวอย่างโค้ดการใช้งาน API ของเรา</h1>
+          <div className="flex justify-around items-center">
+            <Image src="/code/example1.png" width={700} height={450} alt="example1" />
+            <h3 className="text-2xl font-bold">ตั้งค่าสำหรับการใช้งานไลบรารี่ Axios</h3>
+          </div>
+          <div className="w-full flex flex-row-reverse justify-around items-center">
+            <Image src="/code/example2.png" width={700} height={450} alt="example2"/>
+            <h3 className="text-2xl font-bold">การดึงข้อมูลหนังด้วย method GET</h3>
+          </div>
+      </div>
+    </NetflixContainer>
   );
 }

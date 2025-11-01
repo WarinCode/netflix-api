@@ -10,10 +10,8 @@ export default function Loading() {
           width={100}
           height={100}
           className="mx-auto"
+          loading="eager"
         />
-        <h1 className="font-mukta text-4xl font-bold tracking-wider mt-5 text-center text-red-600">
-          Netflix API
-        </h1>
       </div>
     </div>
   );

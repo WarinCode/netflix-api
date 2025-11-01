@@ -15,3 +15,7 @@
   --font-noto: 'Noto Sans Thai Variable', sans-serif;
   --font-mukta: 'Mukta', sans-serif;
 }
+
+html::-webkit-scrollbar {
+  display: none;
+}

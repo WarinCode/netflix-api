@@ -2,6 +2,7 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 import { stackServerApp } from "@/stack/server";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 // @ts-ignore - fontsource has no type declarations for side-effect import
 import "@fontsource-variable/inter";
 // @ts-ignore - fontsource has no type declarations for side-effect import
@@ -28,6 +29,17 @@ export default function RootLayout({
             <StackTheme>{children}</StackTheme>
           </StackProvider>
         </ThemeProvider>
+        <Toaster
+          expand
+          position="top-right"
+          theme="dark"
+          toastOptions={{
+            style: {
+              fontFamily: "'Noto Sans Thai Variable', sans-serif",
+              fontSize: "16px",
+            },
+          }}
+        />
       </body>
     </html>
   );

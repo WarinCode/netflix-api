@@ -7,7 +7,7 @@ export default function ActionButton({
 }: ActionButtonProps) {
   return (
     <button
-      className={`bg-red-600 font-inter cursor-pointer w-30 h-10 rounded-md grid place-items-center text-white transition delay-150 hover:bg-red-800 ${
+      className={`bg-red-600 font-noto cursor-pointer w-30 h-10 rounded-md grid place-items-center text-white transition delay-150 hover:bg-red-800 ${
         className ? className : ""
       }`}
       onClick={handleClick}
