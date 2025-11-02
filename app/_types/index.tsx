@@ -10,7 +10,7 @@ export interface NextJSEnvironment extends NodeJS.ProcessEnv {
   readonly NETFLIX_USER_ID: string;
 }
 
-export type EnvirontmentKeys =
+export type EnvironmentKeys =
   | "DATABASE_URL"
   | "NEXT_PUBLIC_STACK_PROJECT_ID"
   | "NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY"

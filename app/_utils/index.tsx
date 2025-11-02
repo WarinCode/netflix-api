@@ -1,4 +1,4 @@
-import { EnvirontmentKeys } from "@/app/_types";
+import { EnvironmentKeys } from "@/app/_types";
 import { CurrentUser, CurrentInternalUser } from "@stackframe/stack";
 import { ApiKeys, ApiKey } from "@/app/_types";
 
@@ -26,7 +26,7 @@ export const toCamelCase = (text: string): string => {
   }
 };
 
-export const getEnv = (key: EnvirontmentKeys): string => {
+export const getEnv = (key: EnvironmentKeys): string => {
   return process.env[key] as string;
 };
 
