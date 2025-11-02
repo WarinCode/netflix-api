@@ -1,11 +1,14 @@
-import Image from "next/image";
+import JSX from "react";
+import { v4 as uuid } from "uuid";
 import NetflixContainer from "@/components/netflix-container";
 import Navbar from "@/components/navbar";
 import RedButton from "@/components/red-button";
+import CodeExample, { examples } from "@/components/code-example";
+import { CodeExampleProps } from "./_types/propTypes";
 
 export default async function Home() {
   return (
-    <NetflixContainer>
+    <NetflixContainer className="h-screen">
       <Navbar />
       <div className="text-center my-40 w-3/5 mx-auto">
         <h1 className="text-4xl font-bold tracking-wide leading-12 font-noto">
@@ -23,16 +26,15 @@ export default async function Home() {
           className="w-56 h-14 mx-auto mt-10 text-lg font-bold"
         />
       </div>
-      <div className="mt-60 font-noto w-full flex flex-col items-center space-y-4">
-          <h1 className="text-center text-3xl font-bold tracking-wide">ตัวอย่างโค้ดการใช้งาน API ของเรา</h1>
-          <div className="flex justify-around items-center">
-            <Image src="/code/example1.png" width={700} height={450} alt="example1" />
-            <h3 className="text-2xl font-bold">ตั้งค่าสำหรับการใช้งานไลบรารี่ Axios</h3>
-          </div>
-          <div className="w-full flex flex-row-reverse justify-around items-center">
-            <Image src="/code/example2.png" width={700} height={450} alt="example2"/>
-            <h3 className="text-2xl font-bold">การดึงข้อมูลหนังด้วย method GET</h3>
-          </div>
+      <div className="mt-80 font-noto w-full flex flex-col items-center">
+        <h1 className="text-center text-3xl font-bold tracking-wide">
+          ตัวอย่างโค้ดการใช้งาน API ของเรา
+        </h1>
+        {examples.map(
+          (example: CodeExampleProps): JSX.ReactElement => (
+            <CodeExample key={uuid()} {...example} />
+          )
+        )}
       </div>
     </NetflixContainer>
   );

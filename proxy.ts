@@ -11,7 +11,7 @@ export const config = {
 
 export async function proxy(request: NextRequest) {
   const headersList: ReadonlyHeaders = await headers();
-  const userId: string | null = headersList.get("User-ID");
+  const userId: string | null = headersList.get("Netflix-User-ID");
   const apiKey: string | null = headersList.get("Netflix-API-Key");
 
   try {

@@ -61,7 +61,7 @@ export default function Page() {
     );
     toast.success("สร้าง API Key สำเร็จ", {
       description: "โปรดคัดลอกแล้วเก็บ key ไว้เพราะสามารถดู key ได้แค่รอบเดียว",
-      duration: 2500,
+      duration: 3000,
     });
   };
 

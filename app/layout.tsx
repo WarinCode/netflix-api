@@ -9,6 +9,7 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/noto-sans-thai";
 // @ts-ignore - fontsource has no type declarations for side-effect import
 import "@fontsource/mukta";
+import "react-medium-image-zoom/dist/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

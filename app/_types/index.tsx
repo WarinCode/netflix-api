@@ -6,13 +6,17 @@ export interface NextJSEnvironment extends NodeJS.ProcessEnv {
   readonly NEXT_PUBLIC_STACK_PROJECT_ID: string;
   readonly NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: string;
   readonly STACK_SECRET_SERVER_KEY: string;
+  readonly NETFLIX_API_KEY: string;
+  readonly NETFLIX_USER_ID: string;
 }
 
 export type EnvirontmentKeys =
   | "DATABASE_URL"
   | "NEXT_PUBLIC_STACK_PROJECT_ID"
   | "NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY"
-  | "STACK_SECRET_SERVER_KEY";
+  | "STACK_SECRET_SERVER_KEY"
+  | "NETFLIX_API_KEY"
+  | "NETFLIX_USER_ID";
 
 export interface Movie {
   show_id: string;
@@ -30,6 +34,20 @@ export interface Movie {
 }
 
 export type Movies = Movie[];
+
+export interface Payload {
+  type: string;
+  title: string;
+  director: string | null;
+  castMembers: string | null;
+  country: string | null;
+  dateAdded: Date | string;
+  releaseYear: number;
+  rating: string;
+  duration: string;
+  listedIn: string;
+  description: string;
+}
 
 export interface NextParams<T extends object> {
   params: Promise<T>;
@@ -59,3 +77,7 @@ export interface ApiKey {
   userId: string;
 }
 export type ApiKeys = ApiKey[];
+
+export interface SuccessResponse {
+  message: string;
+}

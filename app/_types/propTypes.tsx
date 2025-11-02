@@ -16,4 +16,15 @@ export interface IconButtonProps extends ActionButtonProps {
 
 export interface NetflixContainerProps {
     children: React.ReactNode;
+    className?: string;
+}
+
+export interface CodeExampleProps {
+    className?: string;
+    imagePath: string;
+    text: string;
+    textElement?: JSX.Element;
+    width: number;
+    height: number;
+    alt: string;
 }

@@ -10,13 +10,17 @@ export async function GET(req: NextRequest, { params }: NextParams<Id>) {
   try {
     await ZodSchemas.id.parseAsync(id);
 
-    const data = await sql`SELECT show_id, title, description, duration, rating, type, listed_in, release_year FROM netflix_shows WHERE show_id = ${id};`;
-    return NextResponse.json(data);
+    const data =
+      await sql`SELECT show_id, title, description, duration, rating, type, listed_in, release_year FROM netflix_shows WHERE show_id = ${id};`;
+    if (data.length === 1) {
+      return NextResponse.json(data[0]);
+    }
+    return NextResponse.json({});
   } catch (err: unknown) {
-    if (err instanceof ZodError){
-        return NextResponse.json({ error: err.issues }, { status: 500 });
+    if (err instanceof ZodError) {
+      return NextResponse.json({ error: err.issues }, { status: 500 });
     } else if (err instanceof Error) {
-        return NextResponse.json({ error: err.message }, { status: 500 });
+      return NextResponse.json({ error: err.message }, { status: 500 });
     }
   }
 }
