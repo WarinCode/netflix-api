@@ -4,7 +4,7 @@ import { NextJSEnvironment } from "@/app/_types";
 const { NETFLIX_USER_ID, NETFLIX_API_KEY } = <NextJSEnvironment>process.env;
 // สร้าง instance ไว้สำหรับการใช้งานในการส่ง requests
 export const instance: AxiosInstance = axios.create({
-    baseURL: "https://netflix-api-sable-one.vercel.app",
+    baseURL: "https://netflix-api-provider.vercel.app",
     headers: {
         "Content-Type": "application/json",
         // กำหนดค่า headers ที่ต้องแนบมาตอนส่ง requests 
