@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance } from "axios";
 import { NextJSEnvironment } from "@/app/_types";
 
 const { NETFLIX_USER_ID, NETFLIX_API_KEY } = <NextJSEnvironment>process.env;
