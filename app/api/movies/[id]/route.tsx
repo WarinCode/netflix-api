@@ -11,7 +11,10 @@ export async function GET(req: NextRequest, { params }: NextParams<Id>) {
     await ZodSchemas.id.parseAsync(id);
 
     const data = await sql`SELECT * FROM netflix_shows WHERE show_id = ${id};`;
-    return NextResponse.json(data);
+    if (data.length === 1) {
+      return NextResponse.json(data[0]);
+    }
+    return NextResponse.json({});
   } catch (err: unknown) {
     if (err instanceof ZodError) {
       return NextResponse.json({ error: err.issues }, { status: 500 });
